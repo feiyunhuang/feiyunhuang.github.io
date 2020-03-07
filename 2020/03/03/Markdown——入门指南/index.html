@@ -14,6 +14,25 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+
+                    history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -350,6 +369,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  499
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -376,7 +426,7 @@
 <p>##### 五级标题</p>
 <p>#####五级标题</p>
 <p>###### 六级标题</p>
-<h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><img src="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg" alt=""></p>
+<h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p><img src="http://ww1.sinaimg.cn/large/6aee7dbbgw1effeaclhiyj20eh09cwez.jpg" alt></p>
 <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1.2.3.符号要和文字之间加上一个字符的空格。</p>
 <h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><ul>
 <li>1</li>
@@ -393,20 +443,20 @@
 <li>2</li>
 <li>3</li>
 </ol>
-<p><img src="http://ww4.sinaimg.cn/large/6aee7dbbgw1effew5aftij20d80bz3yw.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/large/6aee7dbbgw1effew5aftij20d80bz3yw.jpg" alt></p>
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>如果你需要引用一小段别处的句子，那么就要用引用的格式。</p>
 <blockquote>
 <p>这是引用</p>
 </blockquote>
 <p>只需要在文本前加入 <code>&gt;</code> 这种尖括号（大于号）即可</p>
-<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/large/6aee7dbbgw1effezhonxlj20e009c3yu.jpg" alt></p>
 <h4 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h4><p>插入链接与插入图片的语法很像，区别在一个 <code>!</code>号</p>
 <p>图片为：<code>![]()</code></p>
 <p>链接为：<code>[]()</code></p>
 <p>插入链接</p>
 <p><a href="www.baidu.com">百度</a></p>
 <p>插入图片</p>
-<p><img src="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/large/6aee7dbbgw1efffa67voyj20ix0ctq3n.jpg" alt></p>
 <h4 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h4><p>Markdown 的粗体和斜体也非常简单，用两个 <code>*</code> 包含一段文本就是粗体的语法，用一个 <code>*</code> 包含一段文本就是斜体的语法。</p>
 <p><strong>这是粗体</strong></p>
 <p> <em>这是斜体</em></p>
@@ -455,8 +505,8 @@
 
 <h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>分割线只要三个*</p>
 <hr>
-<p>浅红色文字：<font color="#dd0000">浅红色文字</font><br/></p>
-<table><tr><td bgcolor=#7FFFD4> 背景颜色 </td></tr></table>
+<p>浅红色文字：<font color="#dd0000">浅红色文字</font><br></p>
+<table><tr><td bgcolor="#7FFFD4"> 背景颜色 </td></tr></table>
 
 
 
@@ -594,7 +644,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -713,7 +763,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2020</span>
@@ -723,6 +775,13 @@
   <span class="author" itemprop="copyrightHolder">HuangYunfei</span>
 </div>
 
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!--
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
@@ -735,7 +794,12 @@
   </a>
 </div>
 
+-->
 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共9k字</span>
+</div>
         
 
         
@@ -881,7 +945,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
