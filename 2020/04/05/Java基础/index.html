@@ -119,10 +119,12 @@
 <meta property="og:url" content="http://yoursite.com/2020/04/05/Java%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="HuangYunfei&#39;s Blog">
 <meta property="og:description" content="###Object有哪些公用方法？ 1．clone方法 保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。 主要是JAVA里除了8种基本类型传参数是值传递，其他的类对象传参数都是引用传递，我们有时候不希望在方法里讲参数改变，这是就需要在类中复写clone方法。 2．getClass方法 final方法，获">
+<meta property="og:image" content="https://camo.githubusercontent.com/7f5199036de793bf6f2f530c4105d3a9138b468b/68747470733a2f2f7777772e72756e6f6f622e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f6d656d6f7279706963312e6a7067">
 <meta property="article:published_time" content="2020-04-05T12:30:01.000Z">
-<meta property="article:modified_time" content="2020-04-11T08:21:42.886Z">
+<meta property="article:modified_time" content="2020-04-12T15:30:52.731Z">
 <meta property="article:author" content="HuangYunfei">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/7f5199036de793bf6f2f530c4105d3a9138b468b/68747470733a2f2f7777772e72756e6f6f622e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f6d656d6f7279706963312e6a7067">
 
 
 
@@ -357,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  599
+                  1.8k
                 </span>
               
 
@@ -373,7 +375,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2
+                  7
                 </span>
               
             </div>
@@ -422,6 +424,104 @@
 <p>该方法唤醒在该对象上等待的某个线程。</p>
 <p>9．notifyAll方法</p>
 <p>该方法唤醒在该对象上等待的所有线程。</p>
+<h1 id="Java-基本数据类型"><a href="#Java-基本数据类型" class="headerlink" title="Java 基本数据类型"></a>Java 基本数据类型</h1><p>变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。</p>
+<p>内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。</p>
+<p><a href="https://camo.githubusercontent.com/7f5199036de793bf6f2f530c4105d3a9138b468b/68747470733a2f2f7777772e72756e6f6f622e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f6d656d6f7279706963312e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/7f5199036de793bf6f2f530c4105d3a9138b468b/68747470733a2f2f7777772e72756e6f6f622e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031332f31322f6d656d6f7279706963312e6a7067" alt="img"></a></p>
+<p>因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。</p>
+<h2 id="Java-的两大数据类型"><a href="#Java-的两大数据类型" class="headerlink" title="Java 的两大数据类型:"></a>Java 的两大数据类型:</h2><ul>
+<li>内置数据类型</li>
+<li>引用数据类型</li>
+</ul>
+<hr>
+<h3 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h3><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<p><strong>byte：</strong></p>
+<ul>
+<li>byte 数据类型是8位、有符号的，以二进制补码表示的整数；</li>
+<li>最小值是 -128（-2^7）；</li>
+<li>最大值是 127（2^7-1）；</li>
+<li>默认值是 0；</li>
+<li>byte 类型用在大型数组中节约空间，主要代替整数，因为 byte 变量占用的空间只有 int 类型的四分之一；</li>
+<li>例子：byte a = 100，byte b = -50。</li>
+</ul>
+<p><strong>short：</strong></p>
+<ul>
+<li>short 数据类型是 16 位、有符号的以二进制补码表示的整数</li>
+<li>最小值是 -32768（-2^15）；</li>
+<li>最大值是 32767（2^15 - 1）；</li>
+<li>Short 数据类型也可以像 byte 那样节省空间。一个short变量是int型变量所占空间的二分之一；</li>
+<li>默认值是 0；</li>
+<li>例子：short s = 1000，short r = -20000。</li>
+</ul>
+<p><strong>int：</strong></p>
+<ul>
+<li>int 数据类型是32位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 -2,147,483,648（-2^31）；</li>
+<li>最大值是 2,147,483,647（2^31 - 1）；</li>
+<li>一般地整型变量默认为 int 类型；</li>
+<li>默认值是 0 ；</li>
+<li>例子：int a = 100000, int b = -200000。</li>
+</ul>
+<p><strong>long：</strong></p>
+<ul>
+<li>long 数据类型是 64 位、有符号的以二进制补码表示的整数；</li>
+<li>最小值是 -9,223,372,036,854,775,808（-2^63）；</li>
+<li>最大值是 9,223,372,036,854,775,807（2^63 -1）；</li>
+<li>这种类型主要使用在需要比较大整数的系统上；</li>
+<li>默认值是 0L；</li>
+<li>例子： long a = 100000L，Long b = -200000L。 “L”理论上不分大小写，但是若写成”l”容易与数字”1”混淆，不容易分辩。所以最好大写。</li>
+</ul>
+<p><strong>float：</strong></p>
+<ul>
+<li>float 数据类型是单精度、32位、符合IEEE 754标准的浮点数；</li>
+<li>float 在储存大型浮点数组的时候可节省内存空间；</li>
+<li>默认值是 0.0f；</li>
+<li>浮点数不能用来表示精确的值，如货币；</li>
+<li>例子：float f1 = 234.5f。</li>
+</ul>
+<p><strong>double：</strong></p>
+<ul>
+<li>double 数据类型是双精度、64 位、符合IEEE 754标准的浮点数；</li>
+<li>浮点数的默认类型为double类型；</li>
+<li>double类型同样不能表示精确的值，如货币；</li>
+<li>默认值是 0.0d；</li>
+<li>例子：double d1 = 123.4。</li>
+</ul>
+<p><strong>boolean：</strong></p>
+<ul>
+<li>boolean数据类型表示一位的信息；</li>
+<li>只有两个取值：true 和 false；</li>
+<li>这种类型只作为一种标志来记录 true/false 情况；</li>
+<li>默认值是 false；</li>
+<li>例子：boolean one = true。</li>
+</ul>
+<p><strong>char：</strong></p>
+<ul>
+<li>char类型是一个单一的 16 位 Unicode 字符；</li>
+<li>最小值是 \u0000（即为0）；</li>
+<li>最大值是 \uffff（即为65,535）；</li>
+<li>char 数据类型可以储存任何字符；</li>
+<li>例子：char letter = ‘A’;。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;8位</span><br><span class="line">byte bx &#x3D; Byte.MAX_VALUE;</span><br><span class="line">byte bn &#x3D; Byte.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;16位</span><br><span class="line">short sx &#x3D; Short.MAX_VALUE;</span><br><span class="line">short sn &#x3D; Short.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;32位</span><br><span class="line">int ix &#x3D; Integer.MAX_VALUE;</span><br><span class="line">int in &#x3D; Integer.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;64位</span><br><span class="line">long lx &#x3D; Long.MAX_VALUE;</span><br><span class="line">long ln &#x3D; Long.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;32位</span><br><span class="line">float fx &#x3D; Float.MAX_VALUE;</span><br><span class="line">float fn &#x3D; Float.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;64位</span><br><span class="line">double dx &#x3D; Double.MAX_VALUE;</span><br><span class="line">double dn &#x3D; Double.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;16位</span><br><span class="line">char cx &#x3D; Character.MAX_VALUE;</span><br><span class="line">char cn &#x3D; Character.MIN_VALUE;</span><br><span class="line">&#x2F;&#x2F;1位</span><br><span class="line">boolean bt &#x3D; Boolean.TRUE;</span><br><span class="line">boolean bf &#x3D; Boolean.FALSE;</span><br><span class="line">&#96;127&#96;</span><br><span class="line">&#96;-128&#96;</span><br><span class="line">&#96;32767&#96;</span><br><span class="line">&#96;-32768&#96;</span><br><span class="line">&#96;2147483647&#96;</span><br><span class="line">&#96;-2147483648&#96;</span><br><span class="line">&#96;9223372036854775807&#96;</span><br><span class="line">&#96;-9223372036854775808&#96;</span><br><span class="line">&#96;3.4028235E38&#96;</span><br><span class="line">&#96;1.4E-45&#96;</span><br><span class="line">&#96;1.7976931348623157E308&#96;</span><br><span class="line">&#96;4.9E-324&#96;</span><br><span class="line">&#96;�&#96;</span><br><span class="line"></span><br><span class="line">&#96;true&#96;</span><br><span class="line">&#96;false&#96;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
+<li>在Java中，引用类型的变量非常类似于C/C++的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了。</li>
+<li>对象、数组都是引用数据类型。</li>
+<li>所有引用类型的默认值都是null。</li>
+<li>一个引用变量可以用来引用任何与之兼容的类型。</li>
+<li>例子：Site site = new Site(“Runoob”)。</li>
+</ul>
+<h3 id="Java-常量"><a href="#Java-常量" class="headerlink" title="Java 常量"></a>Java 常量</h3><p>常量在程序运行时是不能被修改的。</p>
+<p>在 Java 中使用 final 关键字来修饰常量，声明方式和变量类似：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">final double PI &#x3D; 3.1415927;</span><br></pre></td></tr></table></figure>
+
+<p>虽然常量名也可以用小写，但为了便于识别，通常使用大写字母表示常量。</p>
+<p>字面量可以赋给任何内置类型的变量。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte a &#x3D; 68;</span><br><span class="line">char a &#x3D; &#39;A&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="自动拆箱和装箱"><a href="#自动拆箱和装箱" class="headerlink" title="自动拆箱和装箱"></a>自动拆箱和装箱</h2><p>自动装箱与自动拆箱机制，方便基本类型与包装类型的相互转换操作</p>
 
       
     </div>
@@ -519,8 +619,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/surftocat.png"
@@ -535,7 +644,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -546,7 +655,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -557,7 +666,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -625,6 +734,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">Java 基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-的两大数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">Java 的两大数据类型:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置数据类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">内置数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-常量"><span class="nav-number">1.1.3.</span> <span class="nav-text">Java 常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动拆箱和装箱"><span class="nav-number">1.2.</span> <span class="nav-text">自动拆箱和装箱</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -673,7 +798,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.3k字</span>
+  <span class="post-count">博客全站共22.5k字</span>
 </div>
         
 

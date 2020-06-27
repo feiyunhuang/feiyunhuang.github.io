@@ -113,22 +113,23 @@
 
 
 
-<meta name="description" content="堆 Java 虚拟机所管理的内存中最大的一块，Java 堆是所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。 Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代">
+<meta name="description" content="运行时数据区域 程序计数器一块较小的内存空间，当前线程所执行的字节码的行号指示器。通过改变它可以选取下一条需要执行的字节码指令。程序控制流程的指示器，分支、循环、跳转、异常处理、线程恢复等功能都依赖这个计数器来完成。 如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）此内存区">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM复习">
 <meta property="og:url" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="HuangYunfei&#39;s Blog">
-<meta property="og:description" content="堆 Java 虚拟机所管理的内存中最大的一块，Java 堆是所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。 Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆（Garbage Collected Heap）.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代">
+<meta property="og:description" content="运行时数据区域 程序计数器一块较小的内存空间，当前线程所执行的字节码的行号指示器。通过改变它可以选取下一条需要执行的字节码指令。程序控制流程的指示器，分支、循环、跳转、异常处理、线程恢复等功能都依赖这个计数器来完成。 如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）此内存区">
+<meta property="og:image" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/image-20200411130808719.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/image-20200411134817976.png">
 <meta property="article:published_time" content="2020-04-05T12:31:33.000Z">
-<meta property="article:modified_time" content="2020-04-11T06:01:24.575Z">
+<meta property="article:modified_time" content="2020-04-14T06:46:20.069Z">
 <meta property="article:author" content="HuangYunfei">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/image-20200411130808719.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
 
 
 
@@ -385,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  4.3k
+                  4.5k
                 </span>
               
 
@@ -422,7 +423,10 @@
       
 
       
-        <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><hr>
+        <h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="/2020/04/05/JVM%E5%A4%8D%E4%B9%A0/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png" alt="Java虚拟机运行时数据区"></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>一块较小的内存空间，当前线程所执行的字节码的行号指示器。通过改变它可以选取下一条需要执行的字节码指令。程序控制流程的指示器，分支、循环、跳转、异常处理、线程恢复等功能都依赖这个计数器来完成。</p>
+<p>如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><hr>
 <p>Java 虚拟机所管理的内存中最大的一块，Java 堆是所有线程共享的一块内存区域，在虚拟机启动时创建。<strong>此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。</strong></p>
 <p>Java 堆是垃圾收集器管理的主要区域，因此也被称作<strong>GC 堆（Garbage Collected Heap）</strong>.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden 空间、From Survivor、To Survivor 空间等。<strong>进一步划分的目的是更好地回收内存，或者更快地分配内存。</strong></p>
 <p>在 JDK 7 版本及JDK 7 版本之前，堆内存被通常被分为下面三部分：</p>
@@ -558,6 +562,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/04/16/OS/" rel="prev" title="OS">
+                OS <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -633,7 +641,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -644,7 +652,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -655,7 +663,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -732,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#堆"><span class="nav-number">1.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法区"><span class="nav-number">2.</span> <span class="nav-text">方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量池"><span class="nav-number">2.0.1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HotSpot-虚拟机对象探秘"><span class="nav-number">3.</span> <span class="nav-text">HotSpot 虚拟机对象探秘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-类加载检查"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">Step1:类加载检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-分配内存"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">Step2:分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-初始化零值"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">Step3:初始化零值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step4-设置对象头"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">Step4:设置对象头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step5-执行-init-方法"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">Step5:执行 init 方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-垃圾回收"><span class="nav-number">4.</span> <span class="nav-text">JVM 垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-大对象直接进入老年代"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.2 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-长期存活的对象将进入老年代"><span class="nav-number">4.0.2.</span> <span class="nav-text">1.3 长期存活的对象将进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-动态对象年龄判定"><span class="nav-number">4.0.3.</span> <span class="nav-text">1.4 动态对象年龄判定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象已经死亡？"><span class="nav-number">4.1.</span> <span class="nav-text">2 对象已经死亡？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-引用计数法"><span class="nav-number">4.1.1.</span> <span class="nav-text">2.1 引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-可达性分析算法"><span class="nav-number">4.1.2.</span> <span class="nav-text">2.2 可达性分析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-再谈引用"><span class="nav-number">4.1.3.</span> <span class="nav-text">2.3 再谈引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-不可达的对象并非“非死不可”"><span class="nav-number">4.1.4.</span> <span class="nav-text">2.4 不可达的对象并非“非死不可”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-如何判断一个常量是废弃常量"><span class="nav-number">4.1.5.</span> <span class="nav-text">2.5 如何判断一个常量是废弃常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-如何判断一个类是无用的类"><span class="nav-number">4.1.6.</span> <span class="nav-text">2.6 如何判断一个类是无用的类</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时数据区域"><span class="nav-number">1.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序计数器"><span class="nav-number">1.1.</span> <span class="nav-text">程序计数器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆"><span class="nav-number"></span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法区"><span class="nav-number"></span> <span class="nav-text">方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量池"><span class="nav-number">1.</span> <span class="nav-text">运行时常量池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HotSpot-虚拟机对象探秘"><span class="nav-number"></span> <span class="nav-text">HotSpot 虚拟机对象探秘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-类加载检查"><span class="nav-number">0.1.</span> <span class="nav-text">Step1:类加载检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-分配内存"><span class="nav-number">0.2.</span> <span class="nav-text">Step2:分配内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-初始化零值"><span class="nav-number">0.3.</span> <span class="nav-text">Step3:初始化零值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step4-设置对象头"><span class="nav-number">0.4.</span> <span class="nav-text">Step4:设置对象头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step5-执行-init-方法"><span class="nav-number">0.5.</span> <span class="nav-text">Step5:执行 init 方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM-垃圾回收"><span class="nav-number"></span> <span class="nav-text">JVM 垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-大对象直接进入老年代"><span class="nav-number">1.</span> <span class="nav-text">1.2 大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-长期存活的对象将进入老年代"><span class="nav-number">2.</span> <span class="nav-text">1.3 长期存活的对象将进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-动态对象年龄判定"><span class="nav-number">3.</span> <span class="nav-text">1.4 动态对象年龄判定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-对象已经死亡？"><span class="nav-number"></span> <span class="nav-text">2 对象已经死亡？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-引用计数法"><span class="nav-number">1.</span> <span class="nav-text">2.1 引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-可达性分析算法"><span class="nav-number">2.</span> <span class="nav-text">2.2 可达性分析算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-再谈引用"><span class="nav-number">3.</span> <span class="nav-text">2.3 再谈引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-不可达的对象并非“非死不可”"><span class="nav-number">4.</span> <span class="nav-text">2.4 不可达的对象并非“非死不可”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-如何判断一个常量是废弃常量"><span class="nav-number">5.</span> <span class="nav-text">2.5 如何判断一个常量是废弃常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-如何判断一个类是无用的类"><span class="nav-number">6.</span> <span class="nav-text">2.6 如何判断一个类是无用的类</span></a></li></ol></div>
             
 
           </div>
@@ -787,7 +795,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共15.3k字</span>
+  <span class="post-count">博客全站共22.5k字</span>
 </div>
         
 
